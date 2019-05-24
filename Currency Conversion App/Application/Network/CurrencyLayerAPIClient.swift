@@ -35,7 +35,7 @@ final class CurrencyLayerAPIClient: APIClient {
                 var params: Parameters = [:]
                 switch self {
                 case let .live(source, currencies):
-                    params["q"] = access_key
+                    params["access_key"] = access_key
                     if let s = source {
                         params["sorce"] = s
                     }
@@ -68,8 +68,7 @@ extension CurrencyLayerAPIClient {
         let router     = CurrencyLayerAPIClient.Router.Live.live( source: source, currencies: currencies)
         let urlString  = router.urlString
         let parameters = router.parameters
-        
-        CurrencyLayerAPIClient.request(url: urlString, method: .get, parameters: parameters, completionHandler: completionHandler)
+        CurrencyLayerAPIClient.request(url: urlString, method: .get, parameters: parameters , completionHandler: completionHandler)
     }
     
 }

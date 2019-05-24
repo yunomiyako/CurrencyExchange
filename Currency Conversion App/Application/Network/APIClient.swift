@@ -30,6 +30,9 @@ open class APIClient {
         Alamofire.request(url, method: method, parameters: parameters, headers: headers)
             .validate()
             .responseData(completionHandler: { response in
+                // debug to look into response value
+                //let str = String(data: response.data!, encoding: .utf8)!
+                //print(str)
                 switch response.result {
                 case .success(let value):
                     let decoder = JSONDecoder()

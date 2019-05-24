@@ -43,4 +43,7 @@ class CurrencyConversionTemplate : UIView {
         listExchangeRate.center.y = self.frame.size.height/2
     }
     
+    // MARK: - public functions -
+    
+    
 }

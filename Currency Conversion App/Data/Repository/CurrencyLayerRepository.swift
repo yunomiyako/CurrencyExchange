@@ -10,14 +10,11 @@ import Foundation
 
 class CurrencyLayerRepository {
     
-    func getLiveCurerncyChanges(source: String?, currencies: String?) {
-            CurrencyLayerAPIClient.getLiveCurerncyChanges(source: source, currencies: currencies) { [weak self] response in
+    func getLiveCurerncyChanges(source: String?, currencies: String? , completion : @escaping (CurrencyChangesEntity) -> ()) {
+            CurrencyLayerAPIClient.getLiveCurerncyChanges(source: source, currencies: currencies) { response in
                 switch response {
                 case .success(let value):
-                    guard let weakSelf = self else {
-                        return
-                    }
-                    
+                    completion(value)
                 case .error(let error):
                     print("error: \(error)")
                 }

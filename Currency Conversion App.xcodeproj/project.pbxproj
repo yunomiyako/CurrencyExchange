@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		351C10DD2296CE60003FA997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C10DC2296CE60003FA997 /* AppDelegate.swift */; };
-		351C10DF2296CE60003FA997 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C10DE2296CE60003FA997 /* ViewController.swift */; };
+		351C10DF2296CE60003FA997 /* CurrencyConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C10DE2296CE60003FA997 /* CurrencyConversionViewController.swift */; };
 		351C10E22296CE60003FA997 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351C10E02296CE60003FA997 /* Main.storyboard */; };
 		351C10E42296CE63003FA997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351C10E32296CE63003FA997 /* Assets.xcassets */; };
 		351C10E72296CE63003FA997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351C10E52296CE63003FA997 /* LaunchScreen.storyboard */; };
@@ -24,6 +24,7 @@
 		35C56AA722980B8C00A79213 /* CurrencyPairLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56AA622980B8C00A79213 /* CurrencyPairLabel.swift */; };
 		35C56AA922980B9B00A79213 /* RateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56AA822980B9B00A79213 /* RateLabel.swift */; };
 		35C56AAE229819B200A79213 /* CurrencyChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56AAD229819B200A79213 /* CurrencyChangeViewModel.swift */; };
+		35C56AB12298332B00A79213 /* CurrencyConversionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56AB02298332B00A79213 /* CurrencyConversionPresenter.swift */; };
 		AE67F33A8B52709CDB56C4F6 /* Pods_Currency_Conversion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B70C01B6CEF0EF9D875066D /* Pods_Currency_Conversion_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +32,7 @@
 		22FB7C0BE312D74DE4AA4AB0 /* Pods-Currency Conversion App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Conversion App.release.xcconfig"; path = "Target Support Files/Pods-Currency Conversion App/Pods-Currency Conversion App.release.xcconfig"; sourceTree = "<group>"; };
 		351C10D92296CE60003FA997 /* Currency Conversion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Conversion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		351C10DC2296CE60003FA997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		351C10DE2296CE60003FA997 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		351C10DE2296CE60003FA997 /* CurrencyConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionViewController.swift; sourceTree = "<group>"; };
 		351C10E12296CE60003FA997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		351C10E32296CE63003FA997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		351C10E62296CE63003FA997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		35C56AA622980B8C00A79213 /* CurrencyPairLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairLabel.swift; sourceTree = "<group>"; };
 		35C56AA822980B9B00A79213 /* RateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLabel.swift; sourceTree = "<group>"; };
 		35C56AAD229819B200A79213 /* CurrencyChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyChangeViewModel.swift; sourceTree = "<group>"; };
+		35C56AB02298332B00A79213 /* CurrencyConversionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionPresenter.swift; sourceTree = "<group>"; };
 		3923BA72E8993FAF35A59F25 /* Pods-Currency Conversion App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Conversion App.debug.xcconfig"; path = "Target Support Files/Pods-Currency Conversion App/Pods-Currency Conversion App.debug.xcconfig"; sourceTree = "<group>"; };
 		8B70C01B6CEF0EF9D875066D /* Pods_Currency_Conversion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_Conversion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 		351C10DB2296CE60003FA997 /* Currency Conversion App */ = {
 			isa = PBXGroup;
 			children = (
+				35C56AAF229832BF00A79213 /* Presenter */,
 				35C53B512297E4720037CB58 /* Application */,
 				35C53B502297E45B0037CB58 /* Presentation */,
 				35C53B4F2297E4500037CB58 /* Domain */,
@@ -130,7 +133,7 @@
 				35C56A912297E8EB00A79213 /* OrganismViews */,
 				35C56A902297E89900A79213 /* MoleculeViews */,
 				35C56A8F2297E88900A79213 /* AtomicViews */,
-				351C10DE2296CE60003FA997 /* ViewController.swift */,
+				351C10DE2296CE60003FA997 /* CurrencyConversionViewController.swift */,
 				351C10E02296CE60003FA997 /* Main.storyboard */,
 			);
 			path = Presentation;
@@ -225,6 +228,14 @@
 				35C56AAD229819B200A79213 /* CurrencyChangeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35C56AAF229832BF00A79213 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				35C56AB02298332B00A79213 /* CurrencyConversionPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		B2C4589F3192FBA67DA816CF /* Pods */ = {
@@ -363,9 +374,10 @@
 				35C56A9D2297FBB700A79213 /* CurrencyLayerUseCase.swift in Sources */,
 				35C56AA32297FDA400A79213 /* ListExchangeRate.swift in Sources */,
 				35C56A9A2297F9C800A79213 /* CurrencyLayerRepository.swift in Sources */,
-				351C10DF2296CE60003FA997 /* ViewController.swift in Sources */,
+				351C10DF2296CE60003FA997 /* CurrencyConversionViewController.swift in Sources */,
 				351C10DD2296CE60003FA997 /* AppDelegate.swift in Sources */,
 				35C56AAE229819B200A79213 /* CurrencyChangeViewModel.swift in Sources */,
+				35C56AB12298332B00A79213 /* CurrencyConversionPresenter.swift in Sources */,
 				35C56A8E2297E51500A79213 /* APIClient.swift in Sources */,
 				35C56AA12297FD9300A79213 /* ListCurrency.swift in Sources */,
 				35C56AA922980B9B00A79213 /* RateLabel.swift in Sources */,

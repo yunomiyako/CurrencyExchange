@@ -10,7 +10,10 @@ import Foundation
 class CurrencyLayerUseCase {
     private let rep = CurrencyLayerRepository()
     
-    func getLiveCurerncyChanges(source: String?, currencies: String?){
-        self.rep.getLiveCurerncyChanges(source: source, currencies: currencies)
+    func getLiveCurerncyChanges(source: String?, currencies: String? , completion : @escaping ([CurrencyChangeViewModel]) -> ()){
+        self.rep.getLiveCurerncyChanges(source: source, currencies: currencies) { res in
+            let viewModels = res.convertViewModelList()
+            completion(viewModels)
+        }
     }
 }
