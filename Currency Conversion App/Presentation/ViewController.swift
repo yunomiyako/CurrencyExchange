@@ -9,12 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    lazy private var template : CurrencyConversionTemplate = {
+        let template = CurrencyConversionTemplate()
+        return template
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.view.addSubview(template)
     }
-
-
+    
+    override func viewDidLayoutSubviews() {
+        self.layoutTemplate()
+    }
+    
+    private func layoutTemplate() {
+        template.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+    }
 }
 

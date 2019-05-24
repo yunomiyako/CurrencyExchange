@@ -11,7 +11,7 @@ import UIKit
 class ListExchangeRate: UIView {
     // MARK: - Properties -
     lazy private var collectionView : UICollectionView = {
-        let collectionView = UICollectionView()
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         return collectionView
     }()
     private var currencyChangeViewModels : [CurrencyChangeViewModel] = []
