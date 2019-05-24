@@ -13,6 +13,7 @@ final class CurrencyLayerAPIClient: APIClient {
     // MARK: - /
     enum Router: Routable {
         static let host = "https://apilayer.net/api"
+        static let access_key : String = ""
         
         var urlString: String {
             return ""
@@ -33,7 +34,7 @@ final class CurrencyLayerAPIClient: APIClient {
             var parameters: Parameters {
                 var params: Parameters = [:]
                 switch self {
-                case let .live(access_key, source, currencies):
+                case let .live(source, currencies):
                     params["q"] = access_key
                     if let s = source {
                         params["sorce"] = s
@@ -44,7 +45,7 @@ final class CurrencyLayerAPIClient: APIClient {
                 }
                 return params
             }
-            case live(access_key : String , source : String? , currencies : String?)
+            case live(source : String? , currencies : String?)
         }
     }
 }
@@ -61,11 +62,10 @@ extension CurrencyLayerAPIClient {
      **currencies**     [optional] Specify a comma-separated list of currency codes to limit your API response to specific currencies.
      */
     class func getLiveCurerncyChanges(
-                                  access_key: String,
                                   source: String? = nil,
                                   currencies: String? = nil,
-                                  completionHandler: GetLiveCurrencyChangesCompletionHandler? = nil) {
-        let router     = CurrencyLayerAPIClient.Router.Live.live(access_key: access_key, source: source, currencies: currencies)
+                                  completionHandler: @escaping GetLiveCurrencyChangesCompletionHandler) {
+        let router     = CurrencyLayerAPIClient.Router.Live.live( source: source, currencies: currencies)
         let urlString  = router.urlString
         let parameters = router.parameters
         
