@@ -100,6 +100,10 @@
 		35C53B502297E45B0037CB58 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				35C56A922297E93100A79213 /* TemplateViews */,
+				35C56A912297E8EB00A79213 /* OrganismViews */,
+				35C56A902297E89900A79213 /* MoleculeViews */,
+				35C56A8F2297E88900A79213 /* AtomicViews */,
 				351C10DE2296CE60003FA997 /* ViewController.swift */,
 				351C10E02296CE60003FA997 /* Main.storyboard */,
 			);
@@ -120,6 +124,34 @@
 				35C56A8D2297E51500A79213 /* APIClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		35C56A8F2297E88900A79213 /* AtomicViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AtomicViews;
+			sourceTree = "<group>";
+		};
+		35C56A902297E89900A79213 /* MoleculeViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MoleculeViews;
+			sourceTree = "<group>";
+		};
+		35C56A912297E8EB00A79213 /* OrganismViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OrganismViews;
+			sourceTree = "<group>";
+		};
+		35C56A922297E93100A79213 /* TemplateViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TemplateViews;
 			sourceTree = "<group>";
 		};
 		B2C4589F3192FBA67DA816CF /* Pods */ = {
