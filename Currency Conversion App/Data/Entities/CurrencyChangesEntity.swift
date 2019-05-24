@@ -13,7 +13,19 @@ struct CurrencyChangesEntity : Decodable {
     var privacy : String
     var timestamp : Int
     var source : String
-    var quotes : [String : Int]
+    var quotes : [String : Double]
+    
+    func convertViewModelList() -> [CurrencyChangeViewModel] {
+        var currencyChangeEntityList : [CurrencyChangeViewModel] = []
+        let source = self.source
+        for q in self.quotes {
+            let quote = q.key
+            let rate = q.value
+            let newElem = CurrencyChangeViewModel(source: source, quote: quote, rate: rate)
+            currencyChangeEntityList.append(newElem)
+        }
+        return currencyChangeEntityList
+    }
 }
 
 /*

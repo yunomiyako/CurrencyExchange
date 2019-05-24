@@ -13,7 +13,7 @@ final class CurrencyLayerAPIClient: APIClient {
     // MARK: - /
     enum Router: Routable {
         static let host = "https://apilayer.net/api"
-        static let access_key : String = ""
+        static let access_key : String = "393d7e91eea017841fc9bf9fe784e94f"
         
         var urlString: String {
             return ""

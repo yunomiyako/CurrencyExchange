@@ -8,14 +8,18 @@
 
 import UIKit
 
-class RateLabel: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class RateLabel: UILabel {
+    // MARK: - Life cycle events -
+    required override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder:aDecoder)
+    }
+    
+    
+    func setLabelText(rate : Double) {
+        self.text = String(rate)
+    }
 }
