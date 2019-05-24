@@ -136,6 +136,7 @@
 		35C53B512297E4720037CB58 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				35C56AAA22980FE700A79213 /* Utils */,
 				35C56A8C2297E50100A79213 /* Network */,
 			);
 			path = Application;
@@ -206,6 +207,13 @@
 				35C56A9C2297FBB700A79213 /* CurrencyLayerUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		35C56AAA22980FE700A79213 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B2C4589F3192FBA67DA816CF /* Pods */ = {
