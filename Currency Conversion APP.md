@@ -12,7 +12,7 @@
 ### UI
 
 #### Templates
-CurrencyConversionPage : a single top page with a list of currency and a list of exchange rates.
+CurrencyConversionTemplate : a single top page with a list of currency and a list of exchange rates.
 
 #### Organisms
 
