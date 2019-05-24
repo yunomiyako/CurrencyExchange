@@ -16,4 +16,11 @@ class CurrencyLayerUseCase {
             completion(viewModels)
         }
     }
+    
+    func getSupportedCurrencies(completion : @escaping ([SupportedCurrencyViewModel]) -> ()) {
+        self.rep.getSupportedCurrencies() { res in
+            let viewModels = res.convertViewModelList()
+            completion(viewModels)
+        }
+    }
 }

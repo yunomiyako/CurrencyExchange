@@ -47,16 +47,33 @@ final class CurrencyLayerAPIClient: APIClient {
             }
             case live(source : String? , currencies : String?)
         }
+        
+        // MARK: /live
+        enum List : Routable {
+            static let path = "/list"
+            
+            var urlString: String {
+                return Router.host + List.path
+            }
+            
+            var parameters: Parameters {
+                var params: Parameters = [:]
+                params["access_key"] = access_key
+                return params
+            }
+        }
     }
 }
 
 // MARK: - Interface
 extension CurrencyLayerAPIClient {
     typealias GetLiveCurrencyChangesCompletionHandler = (Result<CurrencyChangesEntity>) -> Void
-    typealias GetRepositoryReadmeCompletionHandler = (Result<String>) -> Void
+    typealias GetSupportedCurrenciesCompletionHandler = (Result<SupportedCurrenciesEntity>) -> Void
     
     
     /*
+     Specify a Source Currency, and you get a exchange rate for each currencies.
+     
      **access_key**     [Required] Your API Access Key.
      **source**     [optional] Specify a Source Currency other than the default USD. Supported on the Basic Plan and higher.
      **currencies**     [optional] Specify a comma-separated list of currency codes to limit your API response to specific currencies.
@@ -71,4 +88,11 @@ extension CurrencyLayerAPIClient {
         CurrencyLayerAPIClient.request(url: urlString, method: .get, parameters: parameters , completionHandler: completionHandler)
     }
     
+    /*
+     get a list of supported currencies
+     query : access_key = YOUR_ACCESS_KEY
+     */
+    class func getSupportedCurrencies(completionHandler : GetSupportedCurrenciesCompletionHandler) {
+        
+    }
 }

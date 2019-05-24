@@ -21,8 +21,8 @@ class CurrencyConversionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(template)
-        
         self.presenter = CurrencyConversionPresenter(viewController: self)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,11 +35,11 @@ class CurrencyConversionViewController: UIViewController {
 }
 
 extension CurrencyConversionViewController : CurrencyConversionPresenterInput {
-    func endLoadingCurrencyChangeViewModel(viewModels: [CurrencyChangeViewModel]) {
+    func endLoadSupportedCurrencies(viewModels: [SupportedCurrencyViewModel]) {
         //hogehoge
     }
     
-    func endLoadSupportedCurrencies() {
+    func endLoadingCurrencyChangeViewModel(viewModels: [CurrencyChangeViewModel]) {
         //hogehoge
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 protocol CurrencyConversionPresenterInput {
     func endLoadingCurrencyChangeViewModel(viewModels : [CurrencyChangeViewModel])
-    func endLoadSupportedCurrencies()
+    func endLoadSupportedCurrencies(viewModels: [SupportedCurrencyViewModel])
 }
 
 class CurrencyConversionPresenter {
@@ -21,16 +21,16 @@ class CurrencyConversionPresenter {
     }
     
     func loadSupportedCurrencies() {
+        self.usecase.getSupportedCurrencies() { viewModels in
+            self.viewController?.endLoadSupportedCurrencies(viewModels: viewModels)
+        }
         
-        self.viewController?.endLoadSupportedCurrencies()
     }
     
     func selectedCertainCurrency(currency : String) {
         //CHECK : it now get all possible currencies' rate because currencies is now nil
         self.usecase.getLiveCurerncyChanges(source: currency, currencies: nil) { viewModels in
-           
             self.viewController?.endLoadingCurrencyChangeViewModel(viewModels: viewModels)
-            
         }
     }
 

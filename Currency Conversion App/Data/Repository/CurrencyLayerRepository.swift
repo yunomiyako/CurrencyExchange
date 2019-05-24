@@ -21,4 +21,15 @@ class CurrencyLayerRepository {
             
         }
     }
+    
+    func getSupportedCurrencies(completion : @escaping (SupportedCurrenciesEntity) -> ()) {
+        CurrencyLayerAPIClient.getSupportedCurrencies(){ response in
+            switch response {
+            case .success(let value):
+                completion(value)
+            case .error(let error):
+                print("error: \(error)")
+            }
+        }
+    }
 }
