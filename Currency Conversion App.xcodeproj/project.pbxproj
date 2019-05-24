@@ -12,6 +12,7 @@
 		351C10E22296CE60003FA997 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351C10E02296CE60003FA997 /* Main.storyboard */; };
 		351C10E42296CE63003FA997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351C10E32296CE63003FA997 /* Assets.xcassets */; };
 		351C10E72296CE63003FA997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351C10E52296CE63003FA997 /* LaunchScreen.storyboard */; };
+		35C56A8E2297E51500A79213 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56A8D2297E51500A79213 /* APIClient.swift */; };
 		AE67F33A8B52709CDB56C4F6 /* Pods_Currency_Conversion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B70C01B6CEF0EF9D875066D /* Pods_Currency_Conversion_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		351C10E32296CE63003FA997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		351C10E62296CE63003FA997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		351C10E82296CE63003FA997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35C56A8D2297E51500A79213 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		3923BA72E8993FAF35A59F25 /* Pods-Currency Conversion App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Conversion App.debug.xcconfig"; path = "Target Support Files/Pods-Currency Conversion App/Pods-Currency Conversion App.debug.xcconfig"; sourceTree = "<group>"; };
 		8B70C01B6CEF0EF9D875066D /* Pods_Currency_Conversion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_Conversion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,14 +71,55 @@
 		351C10DB2296CE60003FA997 /* Currency Conversion App */ = {
 			isa = PBXGroup;
 			children = (
+				35C53B512297E4720037CB58 /* Application */,
+				35C53B502297E45B0037CB58 /* Presentation */,
+				35C53B4F2297E4500037CB58 /* Domain */,
+				35C53B4E2297E43E0037CB58 /* Data */,
 				351C10DC2296CE60003FA997 /* AppDelegate.swift */,
-				351C10DE2296CE60003FA997 /* ViewController.swift */,
-				351C10E02296CE60003FA997 /* Main.storyboard */,
 				351C10E32296CE63003FA997 /* Assets.xcassets */,
 				351C10E52296CE63003FA997 /* LaunchScreen.storyboard */,
 				351C10E82296CE63003FA997 /* Info.plist */,
 			);
 			path = "Currency Conversion App";
+			sourceTree = "<group>";
+		};
+		35C53B4E2297E43E0037CB58 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		35C53B4F2297E4500037CB58 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		35C53B502297E45B0037CB58 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				351C10DE2296CE60003FA997 /* ViewController.swift */,
+				351C10E02296CE60003FA997 /* Main.storyboard */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		35C53B512297E4720037CB58 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				35C56A8C2297E50100A79213 /* Network */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		35C56A8C2297E50100A79213 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				35C56A8D2297E51500A79213 /* APIClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B2C4589F3192FBA67DA816CF /* Pods */ = {
@@ -85,7 +128,6 @@
 				3923BA72E8993FAF35A59F25 /* Pods-Currency Conversion App.debug.xcconfig */,
 				22FB7C0BE312D74DE4AA4AB0 /* Pods-Currency Conversion App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -211,6 +253,7 @@
 			files = (
 				351C10DF2296CE60003FA997 /* ViewController.swift in Sources */,
 				351C10DD2296CE60003FA997 /* AppDelegate.swift in Sources */,
+				35C56A8E2297E51500A79213 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
