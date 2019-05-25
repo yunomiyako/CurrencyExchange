@@ -27,7 +27,7 @@ class ListExchangeRate: UIView {
     }()
     
     private var currencyChangeViewModels : [CurrencyChangeViewModel] = []
-    private var contentHeight : CGFloat = 4000
+    private var contentHeight : CGFloat = 7000
     
     // MARK: - Life cycle events -
     internal required override init(frame: CGRect) {

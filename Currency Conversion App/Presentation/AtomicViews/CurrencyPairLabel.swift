@@ -19,6 +19,6 @@ class CurrencyPairLabel: UILabel {
     }
     
     func setLabelText(sourceCurrency : String , targetCurrency : String) {
-        self.text = "\(targetCurrency) / \(sourceCurrency)"
+        self.text = "\(sourceCurrency) / \(targetCurrency)"
     }
 }
