@@ -10,8 +10,9 @@ import UIKit
 
 class CurrencyConversionViewController: UIViewController {
     //view layer
-    lazy private var template : CurrencyConversionTemplate = {
+    lazy fileprivate var template : CurrencyConversionTemplate = {
         let template = CurrencyConversionTemplate()
+        template.delegate = self
         return template
     }()
     
@@ -23,6 +24,7 @@ class CurrencyConversionViewController: UIViewController {
         self.view.addSubview(template)
         self.presenter = CurrencyConversionPresenter(viewController: self)
         
+        self.presenter?.loadSupportedCurrencies()
     }
     
     override func viewDidLayoutSubviews() {
@@ -36,10 +38,16 @@ class CurrencyConversionViewController: UIViewController {
 
 extension CurrencyConversionViewController : CurrencyConversionPresenterInput {
     func endLoadSupportedCurrencies(viewModels: [SupportedCurrencyViewModel]) {
-        //hogehoge
+        template.setSupportedCurrencies(viewModels : viewModels)
     }
     
     func endLoadingCurrencyChangeViewModel(viewModels: [CurrencyChangeViewModel]) {
-        //hogehoge
+        template.setCurrencyChangeRates(viewModels : viewModels)
+    }
+}
+
+extension CurrencyConversionViewController : CurrencyConversionTemplateDelegate {
+    func selectedCurrency(viewModel: SupportedCurrencyViewModel) {
+        self.presenter?.selectedCertainCurrency(currency: viewModel)
     }
 }

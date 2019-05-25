@@ -11,4 +11,8 @@ import Foundation
 struct SupportedCurrencyViewModel {
     var threeLetter : String
     var countryName : String
+    
+    func displayName() -> String {
+        return threeLetter + " - " + countryName
+    }
 }

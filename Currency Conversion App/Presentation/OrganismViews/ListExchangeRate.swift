@@ -32,7 +32,7 @@ class ListExchangeRate: UIView {
         self.addSubview(collectionView)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-    
+        
         self.collectionView.register(CellExchangeRate.self, forCellWithReuseIdentifier: CellExchangeRate.identifier)
         self.collectionView.alwaysBounceVertical = true
         self.collectionView.backgroundColor = .white
@@ -51,6 +51,7 @@ class ListExchangeRate: UIView {
     // MARK: - public functions -
     func loadData(currencyChangeViewModels : [CurrencyChangeViewModel]) {
         self.currencyChangeViewModels = currencyChangeViewModels
+        self.collectionView.reloadData()
     }
     
     

@@ -27,9 +27,10 @@ class CurrencyConversionPresenter {
         
     }
     
-    func selectedCertainCurrency(currency : String) {
+    func selectedCertainCurrency(currency : SupportedCurrencyViewModel) {
         //CHECK : it now get all possible currencies' rate because currencies is now nil
-        self.usecase.getLiveCurerncyChanges(source: currency, currencies: nil) { viewModels in
+        let threeLetter = currency.threeLetter
+        self.usecase.getLiveCurerncyChanges(source: threeLetter, currencies: nil) { viewModels in
             self.viewController?.endLoadingCurrencyChangeViewModel(viewModels: viewModels)
         }
     }
