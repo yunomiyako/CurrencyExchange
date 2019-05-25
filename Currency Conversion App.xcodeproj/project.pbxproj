@@ -29,6 +29,7 @@
 		35C56AB5229840AF00A79213 /* SupportedCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56AB4229840AF00A79213 /* SupportedCurrencyViewModel.swift */; };
 		35C56AB82298C19400A79213 /* LocalStorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56AB72298C19400A79213 /* LocalStorageClient.swift */; };
 		35C56ABB2298C27B00A79213 /* CacheAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56ABA2298C27B00A79213 /* CacheAPIRepository.swift */; };
+		35C56ABD2298D07A00A79213 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C56ABC2298D07A00A79213 /* CommonUtils.swift */; };
 		AE67F33A8B52709CDB56C4F6 /* Pods_Currency_Conversion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B70C01B6CEF0EF9D875066D /* Pods_Currency_Conversion_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		35C56AB4229840AF00A79213 /* SupportedCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedCurrencyViewModel.swift; sourceTree = "<group>"; };
 		35C56AB72298C19400A79213 /* LocalStorageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageClient.swift; sourceTree = "<group>"; };
 		35C56ABA2298C27B00A79213 /* CacheAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAPIRepository.swift; sourceTree = "<group>"; };
+		35C56ABC2298D07A00A79213 /* CommonUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		3923BA72E8993FAF35A59F25 /* Pods-Currency Conversion App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Conversion App.debug.xcconfig"; path = "Target Support Files/Pods-Currency Conversion App/Pods-Currency Conversion App.debug.xcconfig"; sourceTree = "<group>"; };
 		8B70C01B6CEF0EF9D875066D /* Pods_Currency_Conversion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_Conversion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -229,6 +231,7 @@
 		35C56AAA22980FE700A79213 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				35C56ABC2298D07A00A79213 /* CommonUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				35C56A972297F82B00A79213 /* CurrencyChangesEntity.swift in Sources */,
 				35C56A942297F3AA00A79213 /* CurrencyLayerAPIClient.swift in Sources */,
 				35C56A9D2297FBB700A79213 /* CurrencyLayerUseCase.swift in Sources */,
+				35C56ABD2298D07A00A79213 /* CommonUtils.swift in Sources */,
 				35C56AA32297FDA400A79213 /* ListExchangeRate.swift in Sources */,
 				35C56A9A2297F9C800A79213 /* CurrencyLayerRepository.swift in Sources */,
 				351C10DF2296CE60003FA997 /* CurrencyConversionViewController.swift in Sources */,

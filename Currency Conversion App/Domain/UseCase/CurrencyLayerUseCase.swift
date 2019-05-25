@@ -14,7 +14,8 @@ class CurrencyLayerUseCase {
     func getLiveCurerncyChanges(source: String, currencies: String? , completion : @escaping ([CurrencyChangeViewModel]) -> ()){
         
         //if cache is found , return it
-        let cache = self.cache_rep.getLiveCurerncyChanges(source: source, currencies: currencies)
+        let maxAge : Double = 30 * 60 //30min = 30*60s
+        let cache = self.cache_rep.getLiveCurerncyChanges(source: source, currencies: currencies, maxAge: maxAge)
         if let c = cache {
             let viewModels = c.convertViewModelList()
             completion(viewModels)
@@ -31,7 +32,8 @@ class CurrencyLayerUseCase {
     
     func getSupportedCurrencies(completion : @escaping ([SupportedCurrencyViewModel]) -> ()) {
         //if cache is found , return it
-        let cache = self.cache_rep.getSupportedCurrencies()
+        let maxAge : Double = 30 * 60 //30min = 30*60s
+        let cache = self.cache_rep.getSupportedCurrencies(maxAge: maxAge)
         if let c = cache {
             let viewModels = c.convertViewModelList()
             completion(viewModels)
