@@ -23,7 +23,7 @@ class LocalStorageClient {
     final func get(forKey:String) -> Any? {
         return UserDefaults.standard.object(forKey:forKey)
     }
-    
+
     final func clear(forKey:String) {
         UserDefaults.standard.removeObject(forKey: forKey)
     }

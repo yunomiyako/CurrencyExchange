@@ -44,31 +44,46 @@ class CacheAPIRepository {
     // MARK - get and set cache functions -
     func getLiveCurerncyChanges(source: String , currencies: String? , maxAge : Double?) -> CurrencyChangesEntity? {
         let path = pathForLiveCurrencyChanges(source: source, currencies: currencies)
-        let rst = localStorageClient.get(forKey: path) as? CurrencyChangesEntity
+        let json = localStorageClient.get(forKey: path) as? String
         if IsCacheDead(path: path, maxAge: maxAge) {
             return nil
         }
-        return rst
+        
+        //json decode
+        guard let data = json?.data(using: .utf8) else {return nil}
+        let entity = try? JSONDecoder().decode(CurrencyChangesEntity.self, from: data)
+        return entity
     }
     
     func setLiveCurrencyChanges(source: String , currencies: String? , value : CurrencyChangesEntity) {
         let path = pathForLiveCurrencyChanges(source: source, currencies: currencies)
-        localStorageClient.set(value, forKey: path)
-        saveDate(path: path)
+        
+        //json encode
+        if let json = try? JSONEncoder().encode(value) {
+            localStorageClient.set(json, forKey: path)
+            saveDate(path: path)
+        }
     }
     
     func getSupportedCurrencies(maxAge : Double) -> SupportedCurrenciesEntity? {
         let path = SUPPORTED_CURRENCY_PATH
-        let rst = localStorageClient.get(forKey: path) as? SupportedCurrenciesEntity
+        let json = localStorageClient.get(forKey: path) as? String
         if IsCacheDead(path: path, maxAge: maxAge) {
             return nil
         }
-        return rst
+        
+        //json decode
+        guard let data = json?.data(using: .utf8) else {return nil}
+        let entity = try? JSONDecoder().decode(SupportedCurrenciesEntity.self, from: data)
+        return entity
     }
     
     func setSupportedCurrencies(value : SupportedCurrenciesEntity) {
         let path = SUPPORTED_CURRENCY_PATH
-        localStorageClient.set(value, forKey: path)
-        saveDate(path: path)
+        //json encode
+        if let json = try? JSONEncoder().encode(value) {
+            localStorageClient.set(json, forKey: path)
+            saveDate(path: path)
+        }
     }
 }

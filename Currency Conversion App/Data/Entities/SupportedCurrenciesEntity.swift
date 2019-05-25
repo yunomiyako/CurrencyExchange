@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct SupportedCurrenciesEntity : Decodable {
+struct SupportedCurrenciesEntity : Codable {
     var success : Bool
     var terms : String
     var privacy : String
