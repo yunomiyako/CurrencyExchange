@@ -64,17 +64,17 @@ class CellExchangeRate: UICollectionViewCell {
     
     func loadViewModel(viewModel : CurrencyChangeViewModel) {
         let source = viewModel.source
-        let quote = viewModel.quote
+        let target = viewModel.target
         let rate = viewModel.rate
         
-        self.setCurrencyPair(sourceCurrency: source, quoteCurrency: quote)
+        self.setCurrencyPair(sourceCurrency: source, targetCurrency: target)
         self.setRate(rate: rate)
     }
     
     
     // MARK: - private methods -
-    private func setCurrencyPair(sourceCurrency: String, quoteCurrency: String) {
-        currencyPairLabel.setLabelText(sourceCurrency: sourceCurrency, quoteCurrency: quoteCurrency)
+    private func setCurrencyPair(sourceCurrency: String, targetCurrency: String) {
+        currencyPairLabel.setLabelText(sourceCurrency: sourceCurrency, targetCurrency: targetCurrency)
     }
     
     private func setRate(rate : Double) {

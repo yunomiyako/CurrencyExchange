@@ -21,8 +21,8 @@ struct CurrencyChangesEntity : Codable {
         for q in self.quotes {
             let quote = q.key
             let rate = q.value
-            LogDebug("source = \(source) , quote = \(quote) , rate = \(rate)")
-            let newElem = CurrencyChangeViewModel(source: source, quote: quote, rate: rate)
+            let target = String(quote.suffix(3))
+            let newElem = CurrencyChangeViewModel(source: source, quote: quote, rate: rate , target : target)
             currencyChangeEntityList.append(newElem)
         }
         return currencyChangeEntityList

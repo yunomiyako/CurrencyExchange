@@ -10,4 +10,5 @@ struct CurrencyChangeViewModel {
     var source : String
     var quote : String
     var rate : Double
+    var target : String
 }

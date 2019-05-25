@@ -37,7 +37,7 @@ final class CurrencyLayerAPIClient: APIClient {
                 case let .live(source, currencies):
                     params["access_key"] = access_key
                     if let s = source {
-                        params["sorce"] = s
+                        params["source"] = s
                     }
                     if let c = currencies {
                         params["currencies"] = c
