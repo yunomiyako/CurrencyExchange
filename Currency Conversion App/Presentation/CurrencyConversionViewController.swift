@@ -9,21 +9,21 @@
 import UIKit
 
 class CurrencyConversionViewController: UIViewController {
-    //view layer
+    // MARK - view layer -
     lazy fileprivate var template : CurrencyConversionTemplate = {
         let template = CurrencyConversionTemplate()
         template.delegate = self
         return template
     }()
     
-    //properties
+    //MARK - properties -
     private var presenter : CurrencyConversionPresenter?
     
+    //MARK - lifecycles -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(template)
         self.presenter = CurrencyConversionPresenter(viewController: self)
-        
         self.presenter?.loadSupportedCurrencies()
     }
     
