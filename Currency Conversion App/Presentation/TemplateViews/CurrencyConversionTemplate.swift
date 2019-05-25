@@ -61,7 +61,7 @@ class CurrencyConversionTemplate : UIView {
     
     private func layoutListCurrency() {
         listCurrency.frame.size = CGSize(width: self.frame.width, height: self.frame.height)
-        listCurrency.frame.origin = CGPoint(x: 0, y: 20)
+        listCurrency.frame.origin = CGPoint(x: 0, y: 50)
     }
     
     // MARK: - public functions -
