@@ -43,7 +43,7 @@ class ListCurrency: UIView {
         self.addSubview(dropDown)
         
         // baseView
-        baseView.backgroundColor = UIColor.yellow
+        baseView.backgroundColor = UIColor.rgba(red: 9, green: 132, blue: 227, alpha: 1)
         
         // dropDown
         dropDown.didSelect() { (value , index , id) in

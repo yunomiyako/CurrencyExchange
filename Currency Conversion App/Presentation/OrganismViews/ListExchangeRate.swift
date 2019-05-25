@@ -12,10 +12,24 @@ class ListExchangeRate: UIView {
     // MARK: - Properties -
     lazy private var collectionView : UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = .white
+        
         return collectionView
     }()
+    
+    lazy private var scrollView : UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    
     private var currencyChangeViewModels : [CurrencyChangeViewModel] = []
     
+    //test by kitahara
+    private var contentHeight : CGFloat = 2000
     
     // MARK: - Life cycle events -
     internal required override init(frame: CGRect) {
@@ -29,23 +43,27 @@ class ListExchangeRate: UIView {
     }
     
     private func childInit() {
-        self.addSubview(collectionView)
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        self.addSubview(scrollView)
+        self.scrollView.addSubview(collectionView)
         
         self.collectionView.register(CellExchangeRate.self, forCellWithReuseIdentifier: CellExchangeRate.identifier)
-        self.collectionView.alwaysBounceVertical = true
-        self.collectionView.backgroundColor = .white
     }
+
     
     // MARK: - Layout subviews -
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.layoutScrollView()
         self.layoutCollectionView()
     }
     
+    private func layoutScrollView() {
+        scrollView.contentSize = CGSize(width: self.frame.width, height: contentHeight)
+        scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+    }
+    
     private func layoutCollectionView() {
-        collectionView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        collectionView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: contentHeight)
     }
     
     // MARK: - public functions -
@@ -86,24 +104,24 @@ extension ListExchangeRate: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 44)
+        return CGSize(width: 180, height: 100 )
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
 }

@@ -14,10 +14,12 @@ class CellExchangeRate: UICollectionViewCell {
     // MARK: - Properties -
     lazy private var currencyPairLabel : CurrencyPairLabel = {
         let label = CurrencyPairLabel()
+        label.textAlignment = .center
         return label
     }()
     lazy private var rateLabel : RateLabel = {
         let label = RateLabel()
+        label.textAlignment = .center
         return label
     }()
     
@@ -35,6 +37,10 @@ class CellExchangeRate: UICollectionViewCell {
     private func childInit() {
         self.addSubview(currencyPairLabel)
         self.addSubview(rateLabel)
+        
+        self.layer.borderColor = UIColor.rgba(red: 9, green: 132, blue: 227, alpha: 1).cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 30
     }
     
     // MARK: - Layout subviews -
@@ -45,11 +51,13 @@ class CellExchangeRate: UICollectionViewCell {
     }
     
     private func layoutCurrencyPairLabel() {
-        currencyPairLabel.frame = CGRect(x : 0, y : 0, width: self.frame.width, height: self.frame.height / 3)
+        let margin : CGFloat = 5
+        currencyPairLabel.frame = CGRect(x : margin , y : margin , width: self.frame.width - 2 * margin, height: self.frame.height / 3)
     }
     
     private func layoutRateLabel() {
-        rateLabel.frame = CGRect(x: 0, y: self.frame.height / 3, width: self.frame.width, height: self.frame.height / 3 * 2)
+        let margin : CGFloat = 5
+        rateLabel.frame = CGRect(x:  margin , y: self.frame.height / 3 + margin*2, width: self.frame.width - 2*margin, height: self.frame.height / 3 * 2)
     }
     
     // MARK: - public methods -

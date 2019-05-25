@@ -29,8 +29,8 @@ class CurrencyConversionTemplate : UIView {
     }
     
     private func childInit() {
-        self.addSubview(listExchangeRate)
         self.addSubview(listCurrency)
+        self.addSubview(listExchangeRate)
     }
     
     override func layoutSubviews() {
@@ -54,9 +54,10 @@ class CurrencyConversionTemplate : UIView {
     
     // MARK: - Layout subviews -
     private func layoutListExchangeRate() {
-        listExchangeRate.frame.size = CGSize(width: 280, height: 280)
-        listExchangeRate.center.x = self.frame.size.width/2
-        listExchangeRate.center.y = self.frame.size.height/2
+        let marginTop : CGFloat = 300
+        listExchangeRate.frame.size = CGSize(width: self.frame.width, height: self.frame.height - marginTop)
+        listExchangeRate.frame.origin.x = 0
+        listExchangeRate.frame.origin.y = marginTop
     }
     
     private func layoutListCurrency() {
