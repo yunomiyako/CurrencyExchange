@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (4.8.1)
+  - iOSDropDown (0.2.7)
 
 DEPENDENCIES:
   - Alamofire
+  - iOSDropDown
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - iOSDropDown
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  iOSDropDown: 7a4cfc67d5166f319858747b63cd2f7760c4fb4b
 
-PODFILE CHECKSUM: fa964451ad29565ed081f748e75ca5b35cb58cbf
+PODFILE CHECKSUM: 150f319120397d11bea0774e283505e39492905e
 
 COCOAPODS: 1.6.1

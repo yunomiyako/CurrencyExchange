@@ -61,6 +61,9 @@ final class CurrencyLayerAPIClient: APIClient {
                 params["access_key"] = access_key
                 return params
             }
+            
+            //FIXME : I don't need args but if I remove it, it emit error
+            case list(void : String? )
         }
     }
 }
@@ -92,7 +95,10 @@ extension CurrencyLayerAPIClient {
      get a list of supported currencies
      query : access_key = YOUR_ACCESS_KEY
      */
-    class func getSupportedCurrencies(completionHandler : GetSupportedCurrenciesCompletionHandler) {
-        
+    class func getSupportedCurrencies(completionHandler : @escaping GetSupportedCurrenciesCompletionHandler) {
+        let router     = CurrencyLayerAPIClient.Router.List.list(void : "")
+        let urlString  = router.urlString
+        let parameters = router.parameters
+        CurrencyLayerAPIClient.request(url: urlString, method: .get, parameters: parameters , completionHandler: completionHandler)
     }
 }
