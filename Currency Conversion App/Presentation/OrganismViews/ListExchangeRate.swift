@@ -43,7 +43,6 @@ class ListExchangeRate: UIView {
     private func childInit() {
         self.addSubview(scrollView)
         self.scrollView.addSubview(collectionView)
-        
         self.collectionView.register(CellExchangeRate.self, forCellWithReuseIdentifier: CellExchangeRate.identifier)
     }
 
@@ -68,6 +67,7 @@ class ListExchangeRate: UIView {
     func loadData(currencyChangeViewModels : [CurrencyChangeViewModel]) {
         self.currencyChangeViewModels = currencyChangeViewModels
         self.collectionView.reloadData()
+        self.contentHeight = self.collectionView.contentSize.height
     }
     
     
