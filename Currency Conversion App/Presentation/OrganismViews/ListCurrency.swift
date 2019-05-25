@@ -65,6 +65,5 @@ class ListCurrency: UIView {
         for vm in viewModels {
             self.dropDown.optionArray.append(vm.displayName())
         }
-        print(self.dropDown.optionArray.count)
     }
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 class CurrencyLayerUseCase {
-    private let rep = CurrencyLayerRepository()
-    private let cache_rep = CacheAPIRepository()
+    private var rep = CurrencyLayerRepository()
+    private var cache_rep = CacheAPIRepository()
     
     func getLiveCurerncyChanges(source: String, currencies: String? , completion : @escaping ([CurrencyChangeViewModel]) -> ()){
         
@@ -47,4 +47,22 @@ class CurrencyLayerUseCase {
             completion(viewModels)
         }
     }
+    
+    // MARK - for test code -
+    func injectApiRepository(rep : CurrencyLayerRepository){
+        self.rep = rep
+    }
+    
+    func injectCacheRepository(rep : CacheAPIRepository) {
+        self.cache_rep = rep
+    }
+    
+    func clearAllLocalCache() {
+        self.cache_rep.clearAllCache()
+    }
+    
+    func updateCacheDate(date : Date  , path : String) {
+        self.cache_rep.saveDate(date: date, path: path)
+    }
+    
 }

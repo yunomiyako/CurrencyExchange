@@ -94,3 +94,21 @@ response :
   }
 }               
 ```
+
+#### cacheテスト
+setUp : clear all local file
+
+1. getSupportedCurrencies first time
+confirm api called
+
+2. getSupportedCurrencies 15min ago and getSupportedCurrencies second time
+confirm api not called and confirm result got
+
+3. getSupportedCurrencies 35min ago and getSupportedCurrencies second time
+confirm api called
+
+
+
+
+
+ 

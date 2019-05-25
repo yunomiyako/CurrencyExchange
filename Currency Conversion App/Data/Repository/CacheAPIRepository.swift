@@ -8,7 +8,7 @@
 
 import Foundation
 class CacheAPIRepository {
-    private let localStorageClient = LocalStorageClient.sharedInstance
+    private var localStorageClient = LocalStorageClient.sharedInstance
     
     // MARK - path for value -
     func pathForLiveCurrencyChanges(source: String , currencies: String?) -> String {
@@ -16,29 +16,29 @@ class CacheAPIRepository {
         if let c = currencies {
             path += " - " + c
         }
-        return path
+        return LocalStorageKeys.LIVE_CURRENCY_CHANGE + path
     }
-    
-    private let SUPPORTED_CURRENCY_PATH = "SUPPORTED_CURRENCY_PATH"
-    
-    private let PREFIX_TIME = "PREFIX_TIME_"
     
     // MARK - cache control -
     func IsCacheDead(path : String , maxAge : Double?) -> Bool {
         guard let _maxAge = maxAge else {return true}
-        let _savedTime = localStorageClient.get(forKey: PREFIX_TIME + path) as? Date
+        let _savedTime = localStorageClient.get(forKey: LocalStorageKeys.PREFIX_TIME + path) as? Date
         guard let savedTime = _savedTime else { return true }
         let age = CommonUtils.getDiffFromNow(date: savedTime)
         if age.isLess(than: _maxAge) {
-            return true
-        } else {
             return false
+        } else {
+            return true
         }
     }
     
     func saveDate(path : String) {
         let savedTime = CommonUtils.getNowDate()
-        localStorageClient.set(savedTime , forKey: PREFIX_TIME + path)
+        saveDate(date: savedTime, path: path)
+    }
+    
+    func saveDate(date : Date , path : String) {
+        localStorageClient.set(date , forKey: LocalStorageKeys.PREFIX_TIME + path)
     }
     
     // MARK - get and set cache functions -
@@ -66,24 +66,37 @@ class CacheAPIRepository {
     }
     
     func getSupportedCurrencies(maxAge : Double) -> SupportedCurrenciesEntity? {
-        let path = SUPPORTED_CURRENCY_PATH
-        let json = localStorageClient.get(forKey: path) as? String
+        let path = LocalStorageKeys.SUPPORTED_CURRENCY_PATH
         if IsCacheDead(path: path, maxAge: maxAge) {
             return nil
         }
         
         //json decode
-        guard let data = json?.data(using: .utf8) else {return nil}
-        let entity = try? JSONDecoder().decode(SupportedCurrenciesEntity.self, from: data)
+        guard let jsonData = localStorageClient.get(forKey: path) as? Data else {
+            return nil
+        }
+        
+        let entity = try? JSONDecoder().decode(SupportedCurrenciesEntity.self, from: jsonData)
         return entity
     }
     
     func setSupportedCurrencies(value : SupportedCurrenciesEntity) {
-        let path = SUPPORTED_CURRENCY_PATH
+        let path = LocalStorageKeys.SUPPORTED_CURRENCY_PATH
         //json encode
         if let json = try? JSONEncoder().encode(value) {
+            let jsonStr = String(bytes: json, encoding: .utf8)!
             localStorageClient.set(json, forKey: path)
             saveDate(path: path)
         }
     }
+    
+    func clearAllCache() {
+        localStorageClient.clearAll()
+    }
+    
+    // MARK - for test code -
+    func injectLocalStorageClient(localStorageClient : LocalStorageClient) {
+        self.localStorageClient = localStorageClient
+    }
+    
 }

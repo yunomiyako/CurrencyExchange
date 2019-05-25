@@ -10,22 +10,32 @@ import Foundation
 class LocalStorageClient {
     //singleton
     static let sharedInstance = LocalStorageClient()
-    private init() {
+    init() {
     }
     
     /*
      - parameter content:content to save, forKey: path for the content
      */
-    final func set (_ content:Any, forKey:String) {
+    func set(_ content:Any, forKey:String) {
         UserDefaults.standard.set(content, forKey: forKey)
+        UserDefaults.standard.synchronize()
     }
     
-    final func get(forKey:String) -> Any? {
-        return UserDefaults.standard.object(forKey:forKey)
+    func get(forKey:String) -> Any? {
+        let result = UserDefaults.standard.object(forKey:forKey)
+        return result
     }
 
-    final func clear(forKey:String) {
+    func clear(forKey:String) {
         UserDefaults.standard.removeObject(forKey: forKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func clearAll() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
     }
     
 }
