@@ -5,7 +5,7 @@
 * [x] Exchange rates must be fetched from: https://currencylayer.com/documentation
 * [x] User must be able to select a currency from a list of currencies available from the API
 * [x] User should then see a list of exchange rates for the selected currency
-* [ ] Rates should be persisted locally and refreshed no more frequently than every 30 minutes (to limit bandwidth usage)
+* [x] Rates should be persisted locally and refreshed no more frequently than every 30 minutes (to limit bandwidth usage)
 
 ## Design
 

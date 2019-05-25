@@ -37,7 +37,7 @@ class CurrencyConversionViewController: UIViewController {
 }
 
 extension CurrencyConversionViewController : CurrencyConversionPresenterInput {
-    func endLoadSupportedCurrencies(viewModels: [SupportedCurrencyViewModel]) {
+    func endLoadingSupportedCurrencies(viewModels: [SupportedCurrencyViewModel]) {
         template.setSupportedCurrencies(viewModels : viewModels)
     }
     

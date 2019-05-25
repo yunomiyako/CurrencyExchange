@@ -44,7 +44,7 @@ class Currency_Conversion_AppTests: XCTestCase {
     
     /*
      DO: call getSupportedCurrencies twice.
-     EXPECT : call API first, but second time API will not be called
+     EXPECT : API will be called at first time, but at second time API will not be called
      */
     func testCallTwice() {
         let apiRepositoryMock = ApiRepositoryMock()
@@ -60,7 +60,7 @@ class Currency_Conversion_AppTests: XCTestCase {
     
     /*
      DO: call getSupportedCurrencies twice. update cache date into 35 minutes before from now
-     EXPECT : call API first, and second time API will be called
+     EXPECT : API will be called at first time, and will be called at second time too.
      */
     func testCallTwiceAfter30min() {
         let apiRepositoryMock = ApiRepositoryMock()

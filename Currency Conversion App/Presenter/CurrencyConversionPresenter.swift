@@ -9,7 +9,7 @@ import Foundation
 
 protocol CurrencyConversionPresenterInput {
     func endLoadingCurrencyChangeViewModel(viewModels : [CurrencyChangeViewModel])
-    func endLoadSupportedCurrencies(viewModels: [SupportedCurrencyViewModel])
+    func endLoadingSupportedCurrencies(viewModels: [SupportedCurrencyViewModel])
 }
 
 class CurrencyConversionPresenter {
@@ -22,7 +22,7 @@ class CurrencyConversionPresenter {
     
     func loadSupportedCurrencies() {
         self.usecase.getSupportedCurrencies() { viewModels in
-            self.viewController?.endLoadSupportedCurrencies(viewModels: viewModels)
+            self.viewController?.endLoadingSupportedCurrencies(viewModels: viewModels)
         }
         
     }

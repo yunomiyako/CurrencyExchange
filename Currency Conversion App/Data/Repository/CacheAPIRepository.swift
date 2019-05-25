@@ -32,16 +32,20 @@ class CacheAPIRepository {
         }
     }
     
+    // save now date into cache
     func saveDate(path : String) {
         let savedTime = CommonUtils.getNowDate()
         saveDate(date: savedTime, path: path)
     }
     
+    // save specific date into cache
     func saveDate(date : Date , path : String) {
         localStorageClient.set(date , forKey: LocalStorageKeys.PREFIX_TIME + path)
     }
     
     // MARK - get and set cache functions -
+    
+    // get CurrencyChangesEntity from cache if it is not dead
     func getLiveCurerncyChanges(source: String , currencies: String? , maxAge : Double?) -> CurrencyChangesEntity? {
         let path = pathForLiveCurrencyChanges(source: source, currencies: currencies)
         let json = localStorageClient.get(forKey: path) as? String
@@ -55,6 +59,7 @@ class CacheAPIRepository {
         return entity
     }
     
+    //set CurrencyChangesEntity and saveTime into cache
     func setLiveCurrencyChanges(source: String , currencies: String? , value : CurrencyChangesEntity) {
         let path = pathForLiveCurrencyChanges(source: source, currencies: currencies)
         
@@ -65,6 +70,7 @@ class CacheAPIRepository {
         }
     }
     
+    // get SupportedCurrenciesEntity from cache if it is not dead
     func getSupportedCurrencies(maxAge : Double) -> SupportedCurrenciesEntity? {
         let path = LocalStorageKeys.SUPPORTED_CURRENCY_PATH
         if IsCacheDead(path: path, maxAge: maxAge) {
@@ -80,6 +86,7 @@ class CacheAPIRepository {
         return entity
     }
     
+    //set SupportedCurrenciesEntity and saveTime into cache
     func setSupportedCurrencies(value : SupportedCurrenciesEntity) {
         let path = LocalStorageKeys.SUPPORTED_CURRENCY_PATH
         //json encode

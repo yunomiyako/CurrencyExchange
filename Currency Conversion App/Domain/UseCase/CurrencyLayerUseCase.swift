@@ -11,6 +11,12 @@ class CurrencyLayerUseCase {
     private var rep = CurrencyLayerRepository()
     private var cache_rep = CacheAPIRepository()
     
+    
+    /*
+     Get exchange rate of specified source and other currency.
+     To secure the bandwidth, the obtained result is stored in the cache and used for 30 minutes.
+     If currencies is nil, it gets all currenciy pairs. If you want to specify it, pass it in comma separated.
+     */
     func getLiveCurerncyChanges(source: String, currencies: String? , completion : @escaping ([CurrencyChangeViewModel]) -> ()){
         
         //if cache is found , return it
@@ -30,6 +36,9 @@ class CurrencyLayerUseCase {
         }
     }
     
+    /*
+     Get a list of currencies supported by ExchangeLayer
+     */
     func getSupportedCurrencies(completion : @escaping ([SupportedCurrencyViewModel]) -> ()) {
         //if cache is found , return it
         let maxAge : Double = 30 * 60 //30min = 30*60s

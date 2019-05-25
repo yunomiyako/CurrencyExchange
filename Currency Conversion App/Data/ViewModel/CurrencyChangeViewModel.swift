@@ -7,8 +7,8 @@
 //
 
 struct CurrencyChangeViewModel {
-    var source : String
-    var quote : String
+    var source : String //source currency
+    var quote : String //source and target currency
     var rate : Double
-    var target : String
+    var target : String //target currency
 }

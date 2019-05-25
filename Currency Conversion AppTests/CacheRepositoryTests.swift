@@ -29,18 +29,24 @@ class CacheRepositoryTests: XCTestCase {
         rep.clearAllCache()
     }
 
+    //maxAge is 100sec so cache must not be dead
     func testSaveDate() {
         rep.saveDate(path: path)
         let result = rep.IsCacheDead(path: path, maxAge: 100)
         XCTAssertFalse(result)
     }
     
+    //maxAge is -1sec so cache must be dead
     func testSaveDate2() {
         rep.saveDate(path: path)
         let result = rep.IsCacheDead(path: path, maxAge: -1)
         XCTAssertTrue(result)
     }
 
+    /*
+     DO : set testValue into cache
+     EXPECT : localStorageClient's set must be called
+     */
     func testSetSupportedCurrencies() {
         let clientMock = LocalStorageClientMock()
         rep.injectLocalStorageClient(localStorageClient: clientMock)
@@ -50,6 +56,10 @@ class CacheRepositoryTests: XCTestCase {
         XCTAssertTrue(clientMock.setCalled)
     }
     
+    /*
+     DO : set testValue into cache and get it immediately
+     EXPECT : value from cache must not be nil and be same as input value
+     */
     func testGetSupportedCurrencies() {
         let testValue = SupportedCurrenciesEntity(success: true, terms: "terms test", privacy: "", currencies: [:])
         rep.setSupportedCurrencies(value: testValue)

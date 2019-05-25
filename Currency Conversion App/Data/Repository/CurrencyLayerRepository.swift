@@ -10,6 +10,7 @@ import Foundation
 
 class CurrencyLayerRepository {
     
+    // get CurrencyChangeEntity from API
     func getLiveCurerncyChanges(source: String?, currencies: String? , completion : @escaping (CurrencyChangesEntity) -> ()) {
         CurrencyLayerAPIClient.getLiveCurerncyChanges(source: source, currencies: currencies) { response in
                 switch response {
@@ -21,6 +22,7 @@ class CurrencyLayerRepository {
         }
     }
     
+    // get SupportedCurrenciesEntity from API
     func getSupportedCurrencies(completion : @escaping (SupportedCurrenciesEntity) -> ()) {
         CurrencyLayerAPIClient.getSupportedCurrencies(){ response in
             switch response {

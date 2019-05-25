@@ -27,8 +27,6 @@ class ListExchangeRate: UIView {
     }()
     
     private var currencyChangeViewModels : [CurrencyChangeViewModel] = []
-    
-    //test by kitahara
     private var contentHeight : CGFloat = 2000
     
     // MARK: - Life cycle events -

@@ -77,8 +77,6 @@ class ListCurrency: UIView {
     // MARK : - public functions -
     func loadData(viewModels : [SupportedCurrencyViewModel]) {
         self.supportedCurrencies = viewModels
-        
-        //FIXME : a little bit awkward
         self.dropDown.optionArray = []
         for vm in viewModels {
             self.dropDown.optionArray.append(vm.displayName())

@@ -18,7 +18,6 @@ class RateLabel: UILabel {
         super.init(coder:aDecoder)
     }
     
-    
     func setLabelText(rate : Double) {
         self.text = String(rate)
     }
